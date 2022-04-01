@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FRONTEND_DIR = os.path.join(BASE_DIR.split('backend')[0], 'frontend') 
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = ')pll7r6d7gw)axq0irnk2=2-6hj-8%q*2_k4avc7=^e9ngb(@r'
@@ -47,7 +48,7 @@ ROOT_URLCONF = 'src.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join(BASE_DIR, 'frontend/build') ],
+        'DIRS': [ os.path.join(FRONTEND_DIR, 'build') ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -107,7 +108,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'frontend', 'build', 'static')
+STATIC_ROOT = os.path.join(FRONTEND_DIR, 'build', 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

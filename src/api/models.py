@@ -287,7 +287,7 @@ class EmployeeStatusHistory(models.Model):
     
     reason = models.CharField(max_length=100, default="New Hire", blank=True)
     comments = models.TextField(default="Welcome!")
-    effective_date = models.CharField(max_length=30, default=date.get_datetime(), blank=True)
+    effective_date = models.CharField(max_length=30, default="", blank=True)
     modified_by = models.IntegerField(default=0)
     employee = models.ForeignKey(
         Employee, on_delete=models.CASCADE, null=True)
