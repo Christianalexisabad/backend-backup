@@ -210,13 +210,12 @@ class Department(models.Model):
     
     upload_to = "images/department/"
     default = "images/department/default.jpg"
-    
     name = models.CharField(max_length=55, unique=True, default="")
     tel_no = models.CharField(max_length=15, default="None", blank=True) 
     email = models.CharField(max_length=100, default="None", blank=True)
     image = models.ImageField(upload_to=upload_to, default=default, null=True, blank=True, max_length=255)
     department_head_id = models.IntegerField(default=0)
-    created_at = models.CharField(max_length=50, default=date.get_datetime())
+    created_at = models.CharField(max_length=50, default="")
     location = models.ForeignKey(
         Location, on_delete=models.CASCADE, null=True)
 
@@ -350,9 +349,6 @@ class User(models.Model):
         Role, on_delete=models.CASCADE, null=True, blank=True)
     employee = models.ForeignKey(
         Employee, on_delete=models.CASCADE, null=True, blank=True)
-
-    def __str__(self):
-        self.employee
 
     class Meta:
         db_table = "user"
@@ -575,7 +571,6 @@ class WorkExperience(models.Model):
     class Meta:
         db_table = "work_experience"
 
-    
 class VoluntaryWork(models.Model):
     
     org_name = models.CharField(max_length=55, default="")

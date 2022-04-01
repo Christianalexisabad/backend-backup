@@ -8,8 +8,8 @@ FRONTEND_DIR = os.path.join(BASE_DIR.split('backend')[0], 'frontend')
 SECRET_KEY = ')pll7r6d7gw)axq0irnk2=2-6hj-8%q*2_k4avc7=^e9ngb(@r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 APPEND_SLASH = False
 
