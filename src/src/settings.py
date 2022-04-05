@@ -13,8 +13,8 @@ DEBUG = True
 
 APPEND_SLASH = False
 
-ALLOWED_HOSTS = ["ecandoni.com"]
-# ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ["ecandoni.com"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 INSTALLED_APPS = [
@@ -72,12 +72,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecandoni',
-        'USER': 'abadchristian',
-        'PASSWORD': 'Abad121296@',
-        'HOST': '13.58.164.27', 
-        # 'USER': 'root',
-        # 'PASSWORD': '',
-        # 'HOST': 'localhost',
+        # 'USER': 'abadchristian',
+        # 'PASSWORD': 'Abad121296@',
+        # 'HOST': '18.223.43.142', 
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }

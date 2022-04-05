@@ -70,12 +70,12 @@ class PermanentAddressView:
                 "data": {}
             }, status=status.HTTP_404_NOT_FOUND)
         
-    # update permanent address
+    # update permanent addres
     @api_view(['PATCH'])
-    def update(request, employee):
+    def update(request, id):
         
         try:
-            instance = models.PermanentAddress.objects.get(employee=employee)
+            instance = models.PermanentAddress.objects.get(pk=id)
             
             serializer = serializers.PermanentAddress(
                 instance=instance, 
@@ -104,9 +104,9 @@ class ResidentialAddressView:
         try:
             employee = request.data["employee"]
         
-            if models.PermanentAddress.objects.filter(employee=employee).exists():
+            if models.ResidentialAddress.objects.filter(employee=employee).exists():
                 return Response({
-                    "message": "Address with employee no " + employee + " already exists!", 
+                    "message": "Address with employee no " + f'{employee}' + " already exists!", 
                 }, status=status.HTTP_409_CONFLICT)    
                 
             serializer = serializers.ResidentialAddress(data=request.data)
@@ -494,7 +494,7 @@ class AttendanceView:
 
         total = models.Attendance.objects.filter(
             Q(employee=employee) & 
-            Q(date__icontains=get_year_and_month()) & 
+            Q(date__icontains=date.get_year_and_month()) & 
             Q(am_status=status) & 
             Q(pm_status=status)
         ).count()
@@ -2400,7 +2400,7 @@ class EmployeeView:
     @api_view(['GET'])
     def generated_employee_no(request):
         
-        employee_head_count = str(models.Employee.objects.filter(date_hired__icontains=get_year()).count() + 1)
+        employee_head_count = str(models.Employee.objects.filter(date_hired__icontains=date.get_year()).count() + 1)
         employee_no = generated_employee_no() + "-" + employee_head_count
         
         return Response({
@@ -2700,7 +2700,7 @@ class EquipmentRequestView:
                 data = models.EquipmentRequest.objects.all()
            
             serializer = serializers.EquipmentRequest(data, many=True)
-            
+            h
             return Response({ 
                 "message": "Success!", 
                 "total": len(serializer.data),

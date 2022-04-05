@@ -765,7 +765,7 @@ urlpatterns = [
   # permanent address view
   path('permanent-address/new/', views.PermanentAddressView.post, name='create-address'),
   path('permanent-address/<int:employee>/', views.PermanentAddressView.get, name='retrieve-address'),
-  path('permanent-address/update/<int:employee>/', views.PermanentAddressView.update, name='update-address'),
+  path('permanent-address/update/<int:id>/', views.PermanentAddressView.update, name='update-address'),
   
   # permission view
   path('permissions/new/', views.PermissionView.post, name='create-permission'),

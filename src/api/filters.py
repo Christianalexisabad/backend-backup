@@ -69,7 +69,7 @@ def leave(kwargs):
         print(18) 
         return (Q(employee__position__department_id=department))
     elif department_head is not None:
-        print(19) 
+        # print(19) 
         return (Q(employee__position__department__department_head_id=department_head))
     elif employee is not None:
         print(20) 
@@ -181,7 +181,7 @@ def attendance(kwargs):
         print(18) 
         return (Q(employee__position__department_id=department))
     elif department_head is not None:
-        print(19) 
+        # print(19) 
         return (Q(employee__position__department__department_head_id=department_head))
     elif employee is not None:
         print(20) 
@@ -350,7 +350,6 @@ def employee(kwargs):
             )
         ) 
     else:
-        print(19) 
         return (Q(employee_status=1))
 
 
